@@ -55,7 +55,7 @@ public class ClockWidget extends Canvas {
 		int arc = (15 - seconds) * 6 % 360;
 		Color blue = e.display.getSystemColor(SWT.COLOR_BLUE);
 		e.gc.setBackground(blue);
-		e.gc.fillArc(e.x, e.y, e.width - 1, e.height - 1, arc - 1, 2);
+		e.gc.fillArc(e.x, e.y, e.width - 1, e.height - 1, arc - 2, 4);
 	}
 	
 	public Point computeSize(int w, int h, boolean changed) {
