@@ -26,13 +26,13 @@ public class ClockView extends ViewPart {
 	 */
 	@SuppressWarnings("unused")
 	public void createPartControl(Composite parent) {
-		RowLayout layout = new RowLayout(SWT.HORIZONTAL);
-		parent.setLayout(layout);
+//		RowLayout layout = new RowLayout(SWT.HORIZONTAL);
+//		parent.setLayout(layout);
 		final ClockWidget clock1 = new ClockWidget(parent, SWT.NONE);
 		final ClockWidget clock2 = new ClockWidget(parent, SWT.NONE);
 		final ClockWidget clock3 = new ClockWidget(parent, SWT.NONE);
-		clock1.setLayoutData(new RowData(20,20));
-		clock3.setLayoutData(new RowData(100,100));
+//		clock1.setLayoutData(new RowData(20,20));
+//		clock3.setLayoutData(new RowData(100,100));
 	}
 	
 	/**
