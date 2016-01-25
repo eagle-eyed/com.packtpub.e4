@@ -19,7 +19,6 @@ import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.RGB;
-import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
 
@@ -69,26 +68,26 @@ public class ClockWidget extends Canvas {
 		int arc = (15 - seconds) * 6 % 360;
 		//Color blue = e.display.getSystemColor(SWT.COLOR_BLUE);
 		e.gc.setBackground(color);
-		e.gc.setForeground(color);
-//		e.gc.fillArc(e.x, e.y, e.width - 1, e.height - 1, arc - 2, 4);
-		int[] arrow ={// e.x + (e.width-1)/2, e.y + (e.height-1)/2,
-			(int)(e.x + (e.width-1)/2 + 2 * Math.cos(Math.PI/180*(arc+90)) ),
-			(int)(e.y + (e.height-1)/2 + 2 * Math.sin(-Math.PI/180*(arc+90) )),
-			(int)(e.x + (e.width-1)/2 + 2 * Math.cos(Math.PI/180*(arc-90) )),
-			(int)(e.y + (e.height-1)/2 + 2 * Math.sin(-Math.PI/180*(arc-90) )),
-
-			(int)(e.x + (e.width-1)/2*( 1 + Math.cos( Math.PI/180*(arc)-2.*2/(e.width-1)) )),
-			(int)(e.y + (e.height-1)/2*( 1 + Math.sin( -Math.PI/180*(arc)+2.*2/(e.height-1)) )),
-			(int)(e.x + (e.width-1)/2*( 1 + Math.cos( Math.PI/180*(arc)+2.*2/(e.width-1)) )),
-			(int)(e.y + (e.height-1)/2*( 1 + Math.sin( -Math.PI/180*(arc)-2.*2/(e.height-1)) )),
-			};
-		e.gc.fillPolygon(arrow);
-
-		int[] arrow2 ={(int)(e.x + (e.width-1)/2 + (e.width-1)/2 * Math.cos(Math.PI/180*(arc+90)) ),
-				(int)(e.y + (e.height-1)/2 + (e.height-1)/2 * Math.sin(-Math.PI/180*(arc+90) )),
-				(int)(e.x + (e.width-1)/2 + (e.width-1)/2 * Math.cos(Math.PI/180*(arc-90) )),
-				(int)(e.y + (e.height-1)/2 + (e.height-1)/2 * Math.sin(-Math.PI/180*(arc-90) ))};
-		e.gc.drawLine(arrow2[0], arrow2[1], arrow2[2], arrow2[3]);
+//		e.gc.setForeground(color);
+		e.gc.fillArc(e.x, e.y, e.width - 1, e.height - 1, arc - 2, 4);
+//		int[] arrow ={// e.x + (e.width-1)/2, e.y + (e.height-1)/2,
+//			(int)(e.x + (e.width-1)/2 + 2 * Math.cos(Math.PI/180*(arc+90)) ),
+//			(int)(e.y + (e.height-1)/2 + 2 * Math.sin(-Math.PI/180*(arc+90) )),
+//			(int)(e.x + (e.width-1)/2 + 2 * Math.cos(Math.PI/180*(arc-90) )),
+//			(int)(e.y + (e.height-1)/2 + 2 * Math.sin(-Math.PI/180*(arc-90) )),
+//
+//			(int)(e.x + (e.width-1)/2*( 1 + Math.cos( Math.PI/180*(arc)-2.*2/(e.width-1)) )),
+//			(int)(e.y + (e.height-1)/2*( 1 + Math.sin( -Math.PI/180*(arc)+2.*2/(e.height-1)) )),
+//			(int)(e.x + (e.width-1)/2*( 1 + Math.cos( Math.PI/180*(arc)+2.*2/(e.width-1)) )),
+//			(int)(e.y + (e.height-1)/2*( 1 + Math.sin( -Math.PI/180*(arc)-2.*2/(e.height-1)) )),
+//			};
+//		e.gc.fillPolygon(arrow);
+//
+//		int[] arrow2 ={(int)(e.x + (e.width-1)/2 + (e.width-1)/2 * Math.cos(Math.PI/180*(arc+90)) ),
+//				(int)(e.y + (e.height-1)/2 + (e.height-1)/2 * Math.sin(-Math.PI/180*(arc+90) )),
+//				(int)(e.x + (e.width-1)/2 + (e.width-1)/2 * Math.cos(Math.PI/180*(arc-90) )),
+//				(int)(e.y + (e.height-1)/2 + (e.height-1)/2 * Math.sin(-Math.PI/180*(arc-90) ))};
+//		e.gc.drawLine(arrow2[0], arrow2[1], arrow2[2], arrow2[3]);
 		e.gc.setBackground(e.display.getSystemColor(SWT.COLOR_BLACK));
 		int hours = now.get(Calendar.HOUR) + offset;
 		arc = (3 - hours) * 30 % 360;

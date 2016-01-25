@@ -13,6 +13,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Tray;
 import org.eclipse.swt.widgets.TrayItem;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -45,7 +46,7 @@ public class Activator extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
-		final Display display = Display.getDefault();
+		final Display display = Display.getCurrent();//Display.getDefault();
 		display.asyncExec(new Runnable() {
 			public void run() {
 				image = new Image(display, Activator.class
@@ -71,7 +72,7 @@ public class Activator extends AbstractUIPlugin {
 		plugin = null;
 		super.stop(context);
 		if (trayItem != null && !trayItem.isDisposed()) {
-			Display.getDefault().asyncExec(new Runnable() {
+			Display.getCurrent().asyncExec(new Runnable() {
 				public void run() {
 					if (trayItem != null && !trayItem.isDisposed())
 						trayItem.dispose();
@@ -79,7 +80,7 @@ public class Activator extends AbstractUIPlugin {
 			});
 		}
 		if (image != null && !image.isDisposed()) {
-			Display.getDefault().asyncExec(new Runnable() {
+			Display.getCurrent().asyncExec(new Runnable() {
 				public void run() {
 					if (image != null && !image.isDisposed())
 						image.dispose();
