@@ -27,14 +27,15 @@ public class TimeZoneTreeView extends ViewPart {
 	private TreeViewer treeViewer;
 	@Override
 	public void createPartControl(Composite parent) {
-//		ResourceManager rm = JFaceResources.getResources();
-//		LocalResourceManager lrm = new LocalResourceManager(rm, parent);
-//		ImageRegistry ir = new ImageRegistry(lrm);
-//		URL sample = getClass().getResource("/icons/sample.gif");
-//		ir.put("sample", ImageDescriptor.createFromURL(sample));
+		ResourceManager rm = JFaceResources.getResources();
+		LocalResourceManager lrm = new LocalResourceManager(rm, parent);
+		ImageRegistry ir = new ImageRegistry(lrm);
+		URL sample = getClass().getResource("/icons/sample.gif");
+		ir.put("sample", ImageDescriptor.createFromURL(sample));
 		treeViewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL
 				| SWT.V_SCROLL);
-		treeViewer.setLabelProvider(new TimeZoneLabelProvider());
+//		treeViewer.setLabelProvider(new TimeZoneLabelProvider());
+		treeViewer.setLabelProvider(new TimeZoneLabelProvider(ir));
 		treeViewer.setContentProvider(new TimeZoneContentProvider());
 		treeViewer.setInput(new Object[] {TimeZoneComparator.getTimeZones()});
 	}
